@@ -12,10 +12,7 @@ public class VideoHandler : MonoBehaviour
     public VideoPlayer previewVideoPlayer;
     public CaptureFromScreen captureFromScreen;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     public void playCapturedVideo()
     {

@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class ScreenController : MonoBehaviour
 {
     public static ScreenController instance;    // instance of this script
-
+    public CaptureHandler captureHandler;
     public int panelIndex = 0;      //Start with panel at index 0
     public List<GameObject> panelScreens;   //List of panels in list
     public int configBtnClickCount = 0;    //No. of time config Btn clicked
@@ -51,6 +51,11 @@ public class ScreenController : MonoBehaviour
         for (int i = 0; i < panelScreens.Count; i++)
         {
             panelScreens[i].SetActive(i == index - 1);
+        }
+
+        if ( index == 4)
+        {
+            captureHandler.enableUICompnents();
         }
     }
 

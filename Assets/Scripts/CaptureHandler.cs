@@ -30,6 +30,11 @@ public class CaptureHandler : MonoBehaviour
        loadingAnim.SetActive(false);
     }
     
+    public void enableUICompnents()
+    {
+        captureButton.SetActive(true);
+        homeBtn.SetActive(true);
+    }
     // Capture Btn Press Action
     public void captureBtn()
     {
