@@ -9,7 +9,11 @@ public class CaptureHandler : MonoBehaviour
 
     public ScreenController screenController;
     public CaptureFromScreen captureFromScreen;
+    public VideoHandler videoHandler;
+    public GameObject captureButton;
+    public GameObject homeBtn;
     public GameObject MaskObj;
+    public GameObject loadingAnim;
 
     public string videoName;
     public Text debugText;
@@ -22,7 +26,8 @@ public class CaptureHandler : MonoBehaviour
     private void OnEnable()
     {
        MaskObj.SetActive(true);
-        countdownImage.gameObject.SetActive(false);
+       countdownImage.gameObject.SetActive(false);
+       loadingAnim.SetActive(false);
     }
     
     // Capture Btn Press Action
@@ -55,6 +60,8 @@ public class CaptureHandler : MonoBehaviour
 
         // Hide after countdown finishes
         countdownImage.gameObject.SetActive(false);
+        captureButton.SetActive(false);
+        homeBtn.SetActive(false);
 
         // Optionally trigger some event after countdown
         Debug.Log("Countdown Complete!");
@@ -78,11 +85,17 @@ public class CaptureHandler : MonoBehaviour
 
         Debug.Log("Video Capture Stoppped = " + captureFromScreen.LastFilePath);
         debugText.text = videoName + " - OR - "+ captureFromScreen;
+        Invoke("_loadingAnim", 0f);
         Invoke("setVideoPreviewScreen", 2f);
     }
 
+    void _loadingAnim()
+    {
+        loadingAnim.SetActive(true);
+    }
     void setVideoPreviewScreen()
     {
         Debug.Log("Setting Video Preview Screen");
+        videoHandler.playCapturedVideo();
     }
 }
