@@ -56,6 +56,7 @@ public class ScreenController : MonoBehaviour
         if ( index == 4)
         {
             captureHandler.enableUICompnents();
+            modeVideo();
         }
     }
 

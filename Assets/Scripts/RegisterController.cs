@@ -80,7 +80,7 @@ public class RegisterController : MonoBehaviour
         // Save User Data to CSV
         string newLine = $"{EscapeCSV(name)},{EscapeCSV(email)},{EscapeCSV(phone)}";
         File.AppendAllText(filePath, newLine + "\n");
-        //PlayerPrefs.SetString("mailTo", email);
+        PlayerPrefs.SetString("mailTo", email);
         Debug.Log("Data saved to: " + filePath);
 
         //Debug the result
